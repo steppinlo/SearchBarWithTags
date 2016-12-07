@@ -7,7 +7,7 @@ class SearchBarTextFieldCell: UICollectionViewCell {
             textField.placeholder = placeholderText
         }
     }
-    var textFieldFont: UIFont = UIFont.systemFont(ofSize: 14) {
+    var textFieldFont: UIFont = UIFont.systemFontOfSize(14) {
         didSet {
             textField.font = textFieldFont
         }
@@ -16,9 +16,9 @@ class SearchBarTextFieldCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: bounds.height))
-        textField.leftViewMode = .always
-        textField.clearButtonMode = .whileEditing
-        textField.autocorrectionType = .no
+        textField.leftViewMode = .Always
+        textField.clearButtonMode = .WhileEditing
+        textField.autocorrectionType = .No
         addSubview(textField)
     }
     

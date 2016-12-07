@@ -10,22 +10,22 @@ import UIKit
 class SearchBar: UIView, SearchBarCollectionViewDelegate {
     private var searchBar: SearchBarCollectionView!
     private var showingButtons: Bool {
-        return !cancelButton.isHidden && !searchButton.isHidden
+        return !cancelButton.hidden && !searchButton.hidden
     }
     private var cancelButton = UIButton(frame: CGRect.zero)
     private var searchButton = UIButton(frame: CGRect.zero)
     private var buttonPadding: CGFloat = 14
     
-    var searchButtonColor: UIColor = .blue
-    var tagColor: UIColor = .black
-    var tagTextColor: UIColor = .white
-    var searchTitleColor: UIColor = .white
-    var cancelTitleColor: UIColor = .black
-    var buttonFont: UIFont = UIFont.systemFont(ofSize: 14)
+    var searchButtonColor: UIColor = .blueColor()
+    var tagColor: UIColor = .blackColor()
+    var tagTextColor: UIColor = .whiteColor()
+    var searchTitleColor: UIColor = .whiteColor()
+    var cancelTitleColor: UIColor = .blackColor()
+    var buttonFont: UIFont = UIFont.systemFontOfSize(14)
     var delegate: SearchBarDelegate? = nil
     var placeholder: String?
-    var optionsFont: UIFont = UIFont.systemFont(ofSize: 14)
-    var searchBarFont: UIFont = UIFont.systemFont(ofSize: 14)
+    var optionsFont: UIFont = UIFont.systemFontOfSize(14)
+    var searchBarFont: UIFont = UIFont.systemFontOfSize(14)
     
     var cancelButtonTitle: String = "Back" {
         didSet {
@@ -101,16 +101,16 @@ class SearchBar: UIView, SearchBarCollectionViewDelegate {
     }
     
     private func closeActiveSearchState() {
-        cancelButton.isHidden = true
-        searchButton.isHidden = true
+        cancelButton.hidden = true
+        searchButton.hidden = true
         searchBar.performBatchUpdates({
             self.searchBar.frame = self.bounds
             }, completion: nil)
     }
     
     private func toggleButtons() {
-        cancelButton.isHidden = !cancelButton.isHidden
-        searchButton.isHidden = !searchButton.isHidden
+        cancelButton.hidden = !cancelButton.hidden
+        searchButton.hidden = !searchButton.hidden
     }
     
     private func searchButtonAttributes() -> [String: AnyObject] {
@@ -131,15 +131,15 @@ class SearchBar: UIView, SearchBarCollectionViewDelegate {
         var width: CGFloat = 0
         
         if cancelButtonImage != nil {
-            cancelButton.setImage(cancelButtonImage, for: .normal)
-            width = cancelButton.image(for: .normal)!.size.width
+            cancelButton.setImage(cancelButtonImage, forState: .Normal)
+            width = cancelButton.imageView!.image!.size.width
         } else {
             let attributedText = NSAttributedString(string: cancelButtonTitle, attributes: cancelButtonAttributes())
-            cancelButton.setAttributedTitle(attributedText, for: .normal)
+            cancelButton.setAttributedTitle(attributedText, forState: .Normal)
             width = attributedText.size().width
         }
         cancelButton.frame = CGRect(x: -5, y: 0, width: width, height: searchBar.frame.size.height)
-        cancelButton.addTarget(self, action: #selector(SearchBar.cancelTapped(sender:)), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(SearchBar.cancelTapped(_:)), forControlEvents: .TouchUpInside)
     }
     
     private func configureSearchButton() {
@@ -148,7 +148,7 @@ class SearchBar: UIView, SearchBarCollectionViewDelegate {
             attributes: searchButtonAttributes()
         )
         let width = attributedText.size().width + buttonPadding
-        searchButton.setAttributedTitle(attributedText, for: .normal)
+        searchButton.setAttributedTitle(attributedText, forState: .Normal)
         searchButton.frame = CGRect(
             x: bounds.maxX - width + 5,
             y: 0,
@@ -156,14 +156,14 @@ class SearchBar: UIView, SearchBarCollectionViewDelegate {
             height: searchBar.frame.size.height
         )
         searchButton.layer.cornerRadius = 3
-        searchButton.setTitle(searchButtonTitle, for: .normal)
+        searchButton.setTitle(searchButtonTitle, forState: .Normal)
         searchButton.backgroundColor = searchButtonColor
-        searchButton.addTarget(self, action: #selector(SearchBar.searchTapped(sender:)), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(SearchBar.searchTapped(_:)), forControlEvents: .TouchUpInside)
     }
 
     @objc private func cancelTapped(sender: UIButton) {
         endEditing(true)
-        sender.isHidden = true
+        sender.hidden = true
         closeActiveSearchState()
     }
     
@@ -172,14 +172,14 @@ class SearchBar: UIView, SearchBarCollectionViewDelegate {
     }
     
     func addSearchBarOption(option: String) {
-        searchBar.addOption(option: option)
+        searchBar.addOption(option)
     }
     
     internal func searchFieldChanged(textField: UITextField) {
-        delegate?.searchFieldDidChange?(textField: textField)
+        delegate?.searchFieldDidChange?(textField)
     }
     
     internal func searchFieldFinished(textField: UITextField) {
-        delegate?.searchFieldFinishedEditing?(textField: textField)
+        delegate?.searchFieldFinishedEditing?(textField)
     }
 }

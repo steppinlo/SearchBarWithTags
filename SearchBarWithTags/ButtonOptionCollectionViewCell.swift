@@ -4,12 +4,12 @@ class ButtonOptionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var optionToggleIcon: UIImageView!
     @IBOutlet weak var optionTitle: UILabel!
     
-    var color: UIColor = .black {
+    var color: UIColor = .blackColor() {
         didSet {
             backgroundColor = color
         }
     }
-    var optionTitleColor: UIColor = .white {
+    var optionTitleColor: UIColor = .whiteColor() {
         didSet {
             optionTitle.textColor = optionTitleColor
             optionToggleIcon.tintColor = optionTitleColor
@@ -17,7 +17,7 @@ class ButtonOptionCollectionViewCell: UICollectionViewCell {
     }
     
     private var icon: UIImage {
-        return UIImage(named: "appsprite-x")!.withRenderingMode(.alwaysTemplate)
+        return UIImage(named: "appsprite-x")!.imageWithRenderingMode(.AlwaysTemplate)
     }
     
     static func cellWidth(textWidth: CGFloat) -> CGFloat {
