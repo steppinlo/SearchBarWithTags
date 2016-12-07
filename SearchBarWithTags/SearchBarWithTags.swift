@@ -7,7 +7,7 @@ import UIKit
     @objc optional func currentOptions() -> [String]?
 }
 
-class SearchBar: UIView, SearchBarCollectionViewDelegate {
+class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     private var searchBar: SearchBarCollectionView!
     private var showingButtons: Bool {
         return !cancelButton.hidden && !searchButton.hidden
@@ -139,7 +139,7 @@ class SearchBar: UIView, SearchBarCollectionViewDelegate {
             width = attributedText.size().width
         }
         cancelButton.frame = CGRect(x: -5, y: 0, width: width, height: searchBar.frame.size.height)
-        cancelButton.addTarget(self, action: #selector(SearchBar.cancelTapped(_:)), forControlEvents: .TouchUpInside)
+        cancelButton.addTarget(self, action: #selector(SearchBarWithTags.cancelTapped(_:)), forControlEvents: .TouchUpInside)
     }
     
     private func configureSearchButton() {
@@ -158,9 +158,9 @@ class SearchBar: UIView, SearchBarCollectionViewDelegate {
         searchButton.layer.cornerRadius = 3
         searchButton.setTitle(searchButtonTitle, forState: .Normal)
         searchButton.backgroundColor = searchButtonColor
-        searchButton.addTarget(self, action: #selector(SearchBar.searchTapped(_:)), forControlEvents: .TouchUpInside)
+        searchButton.addTarget(self, action: #selector(SearchBarWithTags.searchTapped(_:)), forControlEvents: .TouchUpInside)
     }
-
+    
     @objc private func cancelTapped(sender: UIButton) {
         endEditing(true)
         sender.hidden = true

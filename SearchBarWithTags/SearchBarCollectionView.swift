@@ -9,14 +9,14 @@ protocol SearchBarCollectionViewDelegate {
 class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var options = [String]()
     var searchDelegate: SearchBarCollectionViewDelegate!
-    var searchBar: SearchBar!
+    var searchBar: SearchBarWithTags!
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         commonInit()
     }
     
-    convenience init(frame: CGRect, collectionLayout: UICollectionViewFlowLayout? = nil, searchBar: SearchBar) {
+    convenience init(frame: CGRect, collectionLayout: UICollectionViewFlowLayout? = nil, searchBar: SearchBarWithTags) {
         self.init(frame: frame, collectionViewLayout: collectionLayout ?? SearchBarCollectionView.flowLayout())
         self.searchBar = searchBar
     }

@@ -11,12 +11,12 @@
 		C9863A8C1DF8B77200813BFB /* SearchBarWithTagsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9863A8B1DF8B77200813BFB /* SearchBarWithTagsTests.swift */; };
 		C9863A8E1DF8B77200813BFB /* SearchBarWithTags.h in Headers */ = {isa = PBXBuildFile; fileRef = C9863A801DF8B77200813BFB /* SearchBarWithTags.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9863A981DF8B78E00813BFB /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9863A971DF8B78E00813BFB /* TagCell.xib */; };
-		C9863A9A1DF8B79400813BFB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9863A991DF8B79400813BFB /* SearchBar.swift */; };
 		C9863A9C1DF8B79700813BFB /* SearchBarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9863A9B1DF8B79700813BFB /* SearchBarCollectionView.swift */; };
 		C9863A9E1DF8B79B00813BFB /* ButtonOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9863A9D1DF8B79B00813BFB /* ButtonOptionCollectionViewCell.swift */; };
 		C9863AA01DF8B79F00813BFB /* SearchBarTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9863A9F1DF8B79F00813BFB /* SearchBarTextFieldCell.swift */; };
 		C9863AA21DF8B7DE00813BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9863AA11DF8B7DE00813BFB /* Assets.xcassets */; };
 		C9863AA51DF8B82600813BFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9863AA41DF8B82600813BFB /* UIKit.framework */; };
+		C9863AAB1DF8D54A00813BFB /* SearchBarWithTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9863AAA1DF8D54A00813BFB /* SearchBarWithTags.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,12 +37,12 @@
 		C9863A8B1DF8B77200813BFB /* SearchBarWithTagsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarWithTagsTests.swift; sourceTree = "<group>"; };
 		C9863A8D1DF8B77200813BFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9863A971DF8B78E00813BFB /* TagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
-		C9863A991DF8B79400813BFB /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		C9863A9B1DF8B79700813BFB /* SearchBarCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarCollectionView.swift; sourceTree = "<group>"; };
 		C9863A9D1DF8B79B00813BFB /* ButtonOptionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonOptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9863A9F1DF8B79F00813BFB /* SearchBarTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarTextFieldCell.swift; sourceTree = "<group>"; };
 		C9863AA11DF8B7DE00813BFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9863AA41DF8B82600813BFB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C9863AAA1DF8D54A00813BFB /* SearchBarWithTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarWithTags.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +91,10 @@
 				C9863AA11DF8B7DE00813BFB /* Assets.xcassets */,
 				C9863A811DF8B77200813BFB /* Info.plist */,
 				C9863A971DF8B78E00813BFB /* TagCell.xib */,
-				C9863A991DF8B79400813BFB /* SearchBar.swift */,
 				C9863A9B1DF8B79700813BFB /* SearchBarCollectionView.swift */,
 				C9863A9D1DF8B79B00813BFB /* ButtonOptionCollectionViewCell.swift */,
 				C9863A9F1DF8B79F00813BFB /* SearchBarTextFieldCell.swift */,
+				C9863AAA1DF8D54A00813BFB /* SearchBarWithTags.swift */,
 			);
 			path = SearchBarWithTags;
 			sourceTree = "<group>";
@@ -230,8 +230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9863AAB1DF8D54A00813BFB /* SearchBarWithTags.swift in Sources */,
 				C9863A9C1DF8B79700813BFB /* SearchBarCollectionView.swift in Sources */,
-				C9863A9A1DF8B79400813BFB /* SearchBar.swift in Sources */,
 				C9863A9E1DF8B79B00813BFB /* ButtonOptionCollectionViewCell.swift in Sources */,
 				C9863AA01DF8B79F00813BFB /* SearchBarTextFieldCell.swift in Sources */,
 			);
