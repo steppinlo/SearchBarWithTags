@@ -45,6 +45,8 @@
 		C9863AA11DF8B7DE00813BFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9863AA41DF8B82600813BFB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C9863AAA1DF8D54A00813BFB /* SearchBarWithTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarWithTags.swift; sourceTree = "<group>"; };
+		C9863AB41DF9DA0F00813BFB /* SearchBarWithTagsLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBarWithTagsLibrary.h; sourceTree = "<group>"; };
+		C9863AB51DF9DA0F00813BFB /* SearchBarWithTagsLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBarWithTagsLibrary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				C9863A7F1DF8B77200813BFB /* SearchBarWithTags */,
 				C9863A8A1DF8B77200813BFB /* SearchBarWithTagsTests */,
+				C9863AB31DF9DA0F00813BFB /* SearchBarWithTagsLibrary */,
 				C9863A7E1DF8B77200813BFB /* Products */,
 				C9863AA31DF8B82600813BFB /* Frameworks */,
 			);
@@ -116,6 +119,15 @@
 				C9863AA41DF8B82600813BFB /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9863AB31DF9DA0F00813BFB /* SearchBarWithTagsLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				C9863AB41DF9DA0F00813BFB /* SearchBarWithTagsLibrary.h */,
+				C9863AB51DF9DA0F00813BFB /* SearchBarWithTagsLibrary.m */,
+			);
+			path = SearchBarWithTagsLibrary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +186,9 @@
 		C9863A741DF8B77200813BFB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Stephanie Lo";

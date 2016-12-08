@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SearchBarWithTagsLibrary.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>C9863A851DF8B77200813BFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9863AB11DF9DA0F00813BFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

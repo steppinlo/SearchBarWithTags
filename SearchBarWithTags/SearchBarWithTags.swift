@@ -23,7 +23,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     public var cancelTitleColor: UIColor = .blackColor()
     public var buttonFont: UIFont = UIFont.systemFontOfSize(14)
     public var delegate: SearchBarDelegate? = nil
-    public var placeholder: String?
+    public var placeholder: String = "SEARCH"
     public var optionsFont: UIFont = UIFont.systemFontOfSize(14)
     public var searchBarFont: UIFont = UIFont.systemFontOfSize(14)
     
