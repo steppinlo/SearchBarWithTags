@@ -1,6 +1,6 @@
 import UIKit
 
-@objc protocol SearchBarDelegate {
+@objc public protocol SearchBarDelegate {
     @objc optional func search()
     @objc optional func searchFieldDidChange(textField: UITextField)
     @objc optional func searchFieldFinishedEditing(textField: UITextField)
@@ -22,7 +22,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     public var searchTitleColor: UIColor = .whiteColor()
     public var cancelTitleColor: UIColor = .blackColor()
     public var buttonFont: UIFont = UIFont.systemFontOfSize(14)
-    var delegate: SearchBarDelegate? = nil
+    public var delegate: SearchBarDelegate? = nil
     public var placeholder: String?
     public var optionsFont: UIFont = UIFont.systemFontOfSize(14)
     public var searchBarFont: UIFont = UIFont.systemFontOfSize(14)
@@ -56,7 +56,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
         }
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         let newFrame = CGRect(
             x: 0,
             y: 0,
