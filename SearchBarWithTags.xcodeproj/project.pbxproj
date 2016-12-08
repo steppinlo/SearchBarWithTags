@@ -17,6 +17,8 @@
 		C9863AA21DF8B7DE00813BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9863AA11DF8B7DE00813BFB /* Assets.xcassets */; };
 		C9863AA51DF8B82600813BFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9863AA41DF8B82600813BFB /* UIKit.framework */; };
 		C9863AAB1DF8D54A00813BFB /* SearchBarWithTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9863AAA1DF8D54A00813BFB /* SearchBarWithTags.swift */; };
+		C9863AAC1DF9D41000813BFB /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = C9863AA11DF8B7DE00813BFB /* Assets.xcassets */; };
+		C9863AAD1DF9D41A00813BFB /* TagCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = C9863A971DF8B78E00813BFB /* TagCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,6 +232,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9863AAD1DF9D41A00813BFB /* TagCell.xib in Sources */,
+				C9863AAC1DF9D41000813BFB /* Assets.xcassets in Sources */,
 				C9863AAB1DF8D54A00813BFB /* SearchBarWithTags.swift in Sources */,
 				C9863A9C1DF8B79700813BFB /* SearchBarCollectionView.swift in Sources */,
 				C9863A9E1DF8B79B00813BFB /* ButtonOptionCollectionViewCell.swift in Sources */,
