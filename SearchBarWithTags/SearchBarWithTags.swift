@@ -16,38 +16,38 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     private var searchButton = UIButton(frame: CGRect.zero)
     private var buttonPadding: CGFloat = 14
     
-    var searchButtonColor: UIColor = .blueColor()
-    var tagColor: UIColor = .blackColor()
-    var tagTextColor: UIColor = .whiteColor()
-    var searchTitleColor: UIColor = .whiteColor()
-    var cancelTitleColor: UIColor = .blackColor()
-    var buttonFont: UIFont = UIFont.systemFontOfSize(14)
+    public var searchButtonColor: UIColor = .blueColor()
+    public var tagColor: UIColor = .blackColor()
+    public var tagTextColor: UIColor = .whiteColor()
+    public var searchTitleColor: UIColor = .whiteColor()
+    public var cancelTitleColor: UIColor = .blackColor()
+    public var buttonFont: UIFont = UIFont.systemFontOfSize(14)
     var delegate: SearchBarDelegate? = nil
-    var placeholder: String?
-    var optionsFont: UIFont = UIFont.systemFontOfSize(14)
-    var searchBarFont: UIFont = UIFont.systemFontOfSize(14)
+    public var placeholder: String?
+    public var optionsFont: UIFont = UIFont.systemFontOfSize(14)
+    public var searchBarFont: UIFont = UIFont.systemFontOfSize(14)
     
-    var cancelButtonTitle: String = "Back" {
+    public var cancelButtonTitle: String = "Back" {
         didSet {
             self.configureCancelButton()
         }
     }
-    var cancelButtonImage: UIImage? {
+    public var cancelButtonImage: UIImage? {
         didSet {
             self.configureCancelButton()
         }
     }
-    var searchButtonTitle: String = "SEARCH" {
+    public var searchButtonTitle: String = "SEARCH" {
         didSet {
             self.configureSearchButton()
         }
     }
     
-    var searchBarText: String? {
+    public var searchBarText: String? {
         return searchBar.fetchSearchText()
     }
     
-    var options: [String] {
+    public var options: [String] {
         get {
             return searchBar.options
         }
@@ -77,12 +77,12 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
         toggleButtons()
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         configureCancelButton()
         configureSearchButton()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
