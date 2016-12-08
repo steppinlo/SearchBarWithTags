@@ -17,7 +17,7 @@ class ButtonOptionCollectionViewCell: UICollectionViewCell {
     }
     
     private var icon: UIImage {
-        return UIImage(named: "appsprite-x")!.imageWithRenderingMode(.AlwaysTemplate)
+        return UIImage(named: "appsprite-x", inBundle: NSBundle(forClass: SearchBarWithTags.self), compatibleWithTraitCollection: nil)!
     }
     
     static func cellWidth(textWidth: CGFloat) -> CGFloat {

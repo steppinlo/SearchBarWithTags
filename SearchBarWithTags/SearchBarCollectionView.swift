@@ -35,14 +35,20 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     func commonInit() {
         layer.cornerRadius = 3
         backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 232/255, alpha: 1.0)
-        registerNib(UINib(nibName: "TagCell", bundle: nil), forCellWithReuseIdentifier: "TagCell")
+        registerNib(
+            UINib(
+                nibName: "TagCell",
+                bundle: NSBundle(forClass: SearchBarWithTags.self)
+            ),
+            forCellWithReuseIdentifier: "TagCell"
+        )
         registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "query")
         registerClass(SearchBarTextFieldCell.self, forCellWithReuseIdentifier: "SearchBarTextField")
         delegate = self
         dataSource = self
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 2
     }
     
