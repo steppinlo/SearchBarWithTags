@@ -1,6 +1,6 @@
 import UIKit
 
-public @objc protocol SearchBarDelegate {
+@objc protocol SearchBarDelegate {
     @objc optional func search()
     @objc optional func searchFieldDidChange(textField: UITextField)
     @objc optional func searchFieldFinishedEditing(textField: UITextField)
@@ -16,38 +16,38 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     private var searchButton = UIButton(frame: CGRect.zero)
     private var buttonPadding: CGFloat = 14
     
-    public var searchButtonColor: UIColor = .blueColor()
-    public var tagColor: UIColor = .blackColor()
-    public var tagTextColor: UIColor = .whiteColor()
-    public var searchTitleColor: UIColor = .whiteColor()
-    public var cancelTitleColor: UIColor = .blackColor()
-    public var buttonFont: UIFont = UIFont.systemFontOfSize(14)
-    public var delegate: SearchBarDelegate? = nil
-    public var placeholder: String?
-    public var optionsFont: UIFont = UIFont.systemFontOfSize(14)
-    public var searchBarFont: UIFont = UIFont.systemFontOfSize(14)
+    var searchButtonColor: UIColor = .blueColor()
+    var tagColor: UIColor = .blackColor()
+    var tagTextColor: UIColor = .whiteColor()
+    var searchTitleColor: UIColor = .whiteColor()
+    var cancelTitleColor: UIColor = .blackColor()
+    var buttonFont: UIFont = UIFont.systemFontOfSize(14)
+    var delegate: SearchBarDelegate? = nil
+    var placeholder: String?
+    var optionsFont: UIFont = UIFont.systemFontOfSize(14)
+    var searchBarFont: UIFont = UIFont.systemFontOfSize(14)
     
-    public var cancelButtonTitle: String = "Back" {
+    var cancelButtonTitle: String = "Back" {
         didSet {
             self.configureCancelButton()
         }
     }
-    public var cancelButtonImage: UIImage? {
+    var cancelButtonImage: UIImage? {
         didSet {
             self.configureCancelButton()
         }
     }
-    public var searchButtonTitle: String = "SEARCH" {
+    var searchButtonTitle: String = "SEARCH" {
         didSet {
             self.configureSearchButton()
         }
     }
     
-    public var searchBarText: String? {
+    var searchBarText: String? {
         return searchBar.fetchSearchText()
     }
     
-    public var options: [String] {
+    var options: [String] {
         get {
             return searchBar.options
         }
@@ -77,12 +77,12 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
         toggleButtons()
     }
     
-    override public func layoutSubviews() {
+    override func layoutSubviews() {
         configureCancelButton()
         configureSearchButton()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -171,7 +171,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
         delegate?.search?()
     }
     
-    public func addSearchBarOption(option: String) {
+    func addSearchBarOption(option: String) {
         searchBar.addOption(option)
     }
     
