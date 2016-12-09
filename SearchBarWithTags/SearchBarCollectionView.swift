@@ -28,7 +28,7 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     static func flowLayout() -> UICollectionViewFlowLayout {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .Horizontal
-        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.minimumLineSpacing = 3
         return flowLayout
     }
     

@@ -54,6 +54,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
         }
         set {
             searchBar.options = newValue
+            searchBar.reloadData()
         }
     }
     
