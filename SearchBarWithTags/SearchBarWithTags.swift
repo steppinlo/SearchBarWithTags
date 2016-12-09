@@ -1,10 +1,11 @@
 import UIKit
 
 @objc public protocol SearchBarDelegate {
-    @objc optional func search()
+    @objc optional func searchTapped()
+    @objc optional func backTapped()
     @objc optional func searchFieldDidChange(textField: UITextField)
     @objc optional func searchFieldFinishedEditing(textField: UITextField)
-    @objc optional func currentOptions() -> [String]?
+    @objc optional func searchFieldDidBeginEditing(textField: UITextField)
 }
 
 public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
@@ -86,7 +87,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    internal func showActiveSearchState() {
+    internal func searchFieldActive(textField: UITextField) {
         if !showingButtons {
             searchBar.performBatchUpdates({
                 self.searchBar.frame = CGRect(
@@ -98,6 +99,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
                 }, completion: nil)
             toggleButtons()
         }
+        delegate?.searchFieldDidBeginEditing?(textField)
     }
     
     private func closeActiveSearchState() {
@@ -165,10 +167,11 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
         endEditing(true)
         sender.hidden = true
         closeActiveSearchState()
+        delegate?.backTapped?()
     }
     
     @objc private func searchTapped(sender: UIButton) {
-        delegate?.search?()
+        delegate?.searchTapped?()
     }
     
     func addSearchBarOption(option: String) {

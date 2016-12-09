@@ -1,7 +1,7 @@
 import UIKit
 
 protocol SearchBarCollectionViewDelegate {
-    func showActiveSearchState()
+    func searchFieldActive(textField: UITextField)
     func searchFieldChanged(textField: UITextField)
     func searchFieldFinished(textField: UITextField)
 }
@@ -134,7 +134,7 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
 
 extension SearchBarCollectionView: UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
-        searchDelegate?.showActiveSearchState()
+        searchDelegate?.searchFieldActive(textField)
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
