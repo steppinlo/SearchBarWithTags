@@ -180,6 +180,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
 
     @objc private func searchTapped(sender: UIButton) {
         resetViewWithBackButton()
+        endEditing(true)
         delegate?.searchTapped?()
     }
     
