@@ -88,7 +88,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     }
     
     internal func searchFieldActive(textField: UITextField) {
-        if !showingButtons {
+        if searchButton.hidden {
             searchBar.performBatchUpdates({
                 self.searchBar.frame = CGRect(
                     x: self.searchBar.frame.minX + self.cancelButton.frame.size.width,
@@ -98,11 +98,21 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
                 )
                 }, completion: nil)
             toggleButtons()
+        } else {
+            searchBar.performBatchUpdates({
+                self.searchBar.frame = CGRect(
+                    x: self.searchBar.frame.minX,
+                    y: self.searchBar.frame.minY,
+                    width: self.searchBar.frame.width - self.searchButton.frame.size.width,
+                    height: self.searchBar.frame.height
+                )
+                }, completion: nil)
+            searchButton.hidden = false
         }
         delegate?.searchFieldDidBeginEditing?(textField)
     }
     
-    private func closeActiveSearchState() {
+    public func closeActiveSearchState() {
         cancelButton.hidden = true
         searchButton.hidden = true
         searchBar.performBatchUpdates({
@@ -165,11 +175,9 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     
     @objc private func cancelTapped(sender: UIButton) {
         endEditing(true)
-        sender.hidden = true
-        closeActiveSearchState()
         delegate?.backTapped?()
     }
-    
+
     @objc private func searchTapped(sender: UIButton) {
         delegate?.searchTapped?()
     }
@@ -184,5 +192,17 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     
     internal func searchFieldFinished(textField: UITextField) {
         delegate?.searchFieldFinishedEditing?(textField)
+    }
+
+    public func resetViewWithBackButton() {
+        searchButton.hidden = true
+        searchBar.performBatchUpdates({
+            self.searchBar.frame = CGRect(
+                x: self.searchBar.frame.minX,
+                y: self.searchBar.frame.minY,
+                width: self.searchBar.frame.width + self.searchButton.frame.size.width,
+                height: self.searchBar.frame.height
+            )
+            }, completion: nil)
     }
 }
