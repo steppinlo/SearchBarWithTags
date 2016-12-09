@@ -88,7 +88,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     }
     
     internal func searchFieldActive(textField: UITextField) {
-        if searchButton.hidden {
+        if cancelButton.hidden {
             searchBar.performBatchUpdates({
                 self.searchBar.frame = CGRect(
                     x: self.searchBar.frame.minX + self.cancelButton.frame.size.width,
@@ -179,6 +179,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     }
 
     @objc private func searchTapped(sender: UIButton) {
+        resetViewWithBackButton()
         delegate?.searchTapped?()
     }
     
