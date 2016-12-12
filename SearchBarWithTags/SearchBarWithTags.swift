@@ -208,4 +208,16 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
             )
             }, completion: nil)
     }
+
+    public func addOption(title: String) {
+        options.append(title)
+    }
+
+    public func removeOption(title: String) {
+        for (index, option) in options.enumerate() {
+            if option == title {
+                options.removeAtIndex(index)
+            }
+        }
+    }
 }

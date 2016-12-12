@@ -69,7 +69,7 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
             let h = collectionView.bounds.height - 5
             return CGSize(width: collectionView.bounds.width, height: h)
         } else {
-            let text = options[indexPath.item].lowercaseString
+            let text = options[indexPath.item]
             let attributedText = NSAttributedString(
                 string: text,
                 attributes: [NSFontAttributeName:  searchBar.optionsFont]
@@ -94,7 +94,7 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
             return cell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TagCell", forIndexPath: indexPath) as! ButtonOptionCollectionViewCell
-            let text = options[indexPath.item].lowercaseString
+            let text = options[indexPath.item]
             let attributes = [NSFontAttributeName:  searchBar.optionsFont]
             let attributedText = NSAttributedString(string: text, attributes: attributes)
             cell.color = searchBar.tagColor
