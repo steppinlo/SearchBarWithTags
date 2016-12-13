@@ -100,7 +100,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
                 )
                 }, completion: nil)
             toggleButtons()
-        } else {
+        } else if !cancelButton.hidden && searchButton.hidden{
             searchBar.performBatchUpdates({
                 self.searchBar.frame = CGRect(
                     x: self.searchBar.frame.minX,
