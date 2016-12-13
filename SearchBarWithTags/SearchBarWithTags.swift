@@ -3,6 +3,7 @@ import UIKit
 @objc public protocol SearchBarDelegate {
     @objc optional func searchTapped()
     @objc optional func backTapped()
+    @objc optional func tagRemovedTapped(title: String)
     @objc optional func searchFieldDidChange(textField: UITextField)
     @objc optional func searchFieldFinishedEditing(textField: UITextField)
     @objc optional func searchFieldDidBeginEditing(textField: UITextField)
@@ -219,5 +220,9 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
                 options.removeAtIndex(index)
             }
         }
+    }
+
+    public func tagRemovedTapped(title: String) {
+        delegate?.tagRemovedTapped?(title)
     }
 }

@@ -4,6 +4,7 @@ protocol SearchBarCollectionViewDelegate {
     func searchFieldActive(textField: UITextField)
     func searchFieldChanged(textField: UITextField)
     func searchFieldFinished(textField: UITextField)
+    func tagRemovedTapped(text: String)
 }
 
 class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -106,13 +107,16 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
+            let objToRemove = options[indexPath.item]
             options.removeAtIndex(indexPath.item)
             performBatchUpdates({
                 collectionView.deleteItemsAtIndexPaths([indexPath])
-                }, completion: { _ in
+                }, completion: { [weak self] _ in
+                    guard let `self` = self else { return }
+                    self.searchDelegate?.tagRemovedTapped(objToRemove)
                     //seems to prevent the race condition of datasource updating and search not showing up.
-                    collectionView.reloadItemsAtIndexPaths(self.indexPathsForVisibleItems())
-            })
+                    collectionView.reloadItemsAtIndexPaths((self.indexPathsForVisibleItems()))
+                })
         }
     }
     
