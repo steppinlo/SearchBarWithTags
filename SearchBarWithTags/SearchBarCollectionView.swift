@@ -17,8 +17,12 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
         commonInit()
     }
     
-    convenience init(frame: CGRect, collectionLayout: UICollectionViewFlowLayout? = nil, searchBar: SearchBarWithTags) {
-        self.init(frame: frame, collectionViewLayout: collectionLayout ?? SearchBarCollectionView.flowLayout())
+    convenience init(frame: CGRect, searchBar: SearchBarWithTags) {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .Horizontal
+        flowLayout.minimumLineSpacing = 3
+
+        self.init(frame: frame, collectionViewLayout: flowLayout)
         self.searchBar = searchBar
     }
     

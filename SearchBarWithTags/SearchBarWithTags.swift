@@ -70,7 +70,6 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
         super.init(frame: newFrame)
         searchBar = SearchBarCollectionView(
             frame: bounds,
-            collectionLayout: SearchBarCollectionView.flowLayout(),
             searchBar: self
         )
         searchBar.searchDelegate = self
