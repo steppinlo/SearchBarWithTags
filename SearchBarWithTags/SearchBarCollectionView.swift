@@ -21,6 +21,7 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .Horizontal
         flowLayout.minimumLineSpacing = 3
+        flowLayout.minimumInteritemSpacing = 3
 
         self.init(frame: frame, collectionViewLayout: flowLayout)
         self.searchBar = searchBar
@@ -28,13 +29,6 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    static func flowLayout() -> UICollectionViewFlowLayout {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .Horizontal
-        flowLayout.minimumLineSpacing = 3
-        return flowLayout
     }
     
     func commonInit() {
