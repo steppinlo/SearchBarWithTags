@@ -46,7 +46,12 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     }
     
     public var searchBarText: String? {
-        return searchBar.fetchSearchText()
+        get {
+            return searchBar.fetchSearchText()
+        }
+        set {
+            searchBar.searchText = newValue
+        }
     }
     
     public var options: [String] {

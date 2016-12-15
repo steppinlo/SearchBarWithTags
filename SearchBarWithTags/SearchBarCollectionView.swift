@@ -11,7 +11,12 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     var options = [String]()
     var searchDelegate: SearchBarCollectionViewDelegate!
     var searchBar: SearchBarWithTags!
-    
+    var searchText: String? {
+        didSet {
+            reloadData()
+        }
+    }
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         commonInit()
@@ -82,6 +87,7 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
         if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SearchBarTextField", forIndexPath: indexPath) as! SearchBarTextFieldCell
             cell.textField.delegate = self
+            cell.textField.text = searchText
             cell.placeholderText = searchBar.placeholder
             cell.backgroundColor = .clearColor()
             cell.textField.font = searchBar.searchBarFont
