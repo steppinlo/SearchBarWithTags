@@ -203,15 +203,18 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     }
 
     public func resetViewWithBackButton() {
-        searchButton.hidden = true
-        searchBar.performBatchUpdates({
+        searchBar.performBatchUpdates({ [weak self] _ in
+            guard let `self` = self else { return }
             self.searchBar.frame = CGRect(
-                x: self.searchBar.frame.minX,
+                x: self.searchBar.frame.minX + (self.cancelButton.hidden ? self.cancelButton.frame.size.width : 0),
                 y: self.searchBar.frame.minY,
-                width: self.searchBar.frame.width + self.searchButton.frame.size.width,
+                width: self.searchBar.frame.width + (self.searchButton.hidden ? 0 : self.searchButton.frame.size.width),
                 height: self.searchBar.frame.height
             )
-            }, completion: nil)
+            }, completion: nil
+        )
+        searchButton.hidden = true
+        cancelButton.hidden = false
     }
 
     public func addOption(title: String) {
