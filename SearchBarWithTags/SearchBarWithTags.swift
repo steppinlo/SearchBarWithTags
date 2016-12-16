@@ -229,4 +229,9 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     public func tagRemovedTapped(title: String) {
         delegate?.tagRemovedTapped?(title)
     }
+
+    public func resetSearchBar() {
+        searchBar.options.removeAll()
+        searchBarText = nil
+    }
 }
