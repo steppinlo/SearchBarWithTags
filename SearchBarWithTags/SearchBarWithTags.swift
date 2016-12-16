@@ -50,7 +50,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
             return searchBar.cachedTitle
         }
         set {
-            searchBar.searchText = newValue
+            searchBar.setTitle(newValue)
         }
     }
     

@@ -11,11 +11,6 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     var options = [String]()
     var searchDelegate: SearchBarCollectionViewDelegate!
     var searchBar: SearchBarWithTags!
-    var searchText: String? {
-        didSet {
-            reloadData()
-        }
-    }
     var cachedTitle: String?
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -88,7 +83,7 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
         if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SearchBarTextField", forIndexPath: indexPath) as! SearchBarTextFieldCell
             cell.textField.delegate = self
-            cell.textField.text = searchText
+            cell.textField.text = cachedTitle
             cell.placeholderText = searchBar.placeholder
             cell.backgroundColor = .clearColor()
             cell.textField.font = searchBar.searchBarFont
@@ -123,6 +118,11 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
                     collectionView.reloadItemsAtIndexPaths((self.indexPathsForVisibleItems()))
                 })
         }
+    }
+
+    func setTitle(title: String?) {
+        cachedTitle = title
+        reloadData()
     }
     
     func addOption(option: String) {
