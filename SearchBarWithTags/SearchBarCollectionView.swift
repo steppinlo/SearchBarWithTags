@@ -16,6 +16,7 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
             reloadData()
         }
     }
+    var cachedTitle: String?
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -124,11 +125,6 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
         }
     }
     
-    func fetchSearchText() -> String? {
-        let cell = cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 1)) as! SearchBarTextFieldCell
-        return cell.textField.text
-    }
-    
     func addOption(option: String) {
         options.append(option)
         let ip = NSIndexPath(forItem: options.count - 1, inSection: 0)
@@ -136,6 +132,7 @@ class SearchBarCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     }
     
     func textFieldDidChange(sender: UITextField) {
+        cachedTitle = sender.text
         searchDelegate?.searchFieldChanged(sender)
     }
 }

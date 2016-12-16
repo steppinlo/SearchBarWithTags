@@ -47,7 +47,7 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     
     public var searchBarText: String? {
         get {
-            return searchBar.fetchSearchText()
+            return searchBar.cachedTitle
         }
         set {
             searchBar.searchText = newValue
