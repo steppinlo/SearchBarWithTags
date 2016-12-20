@@ -236,5 +236,6 @@ public class SearchBarWithTags: UIView, SearchBarCollectionViewDelegate {
     public func resetSearchBar() {
         searchBar.options.removeAll()
         searchBarText = nil
+        searchBar.cachedTitle = nil
     }
 }
